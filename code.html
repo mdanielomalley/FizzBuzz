@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Dan O'Malley</title>
+    <title>Fizz-Buzz: A Coding Project by Dan O'Malley</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +19,8 @@
     
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://use.typekit.net/pim8ayq.css">
+
     <!-- <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png"> -->
     <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest"> -->
@@ -30,8 +32,8 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container-fluid">
         <img src="/img/LogoIconIsolateNoBackground.png" class="align-content-center justify-content-start" height="40">
-        <a class="navbar-brand" href="#" class="aligh-content-center justify-content-end">
-            APP NAME
+        <a class="navbar-brand logoFont" href="#" class="align-content-center justify-content-end">
+            Fizz-Buzz
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,19 +42,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link"  href="index.html">Home</a>
+                    <a class="nav-link logoFontExtraLight"  href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="app.html">The App</a>
+                    <a class="nav-link logoFontExtraLight" href="app.html">The App</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
+                    <a class="nav-link active logoFontExtraLight" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link logoFontExtraLight" target="_blank" href="#">Git Repo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
+                    <a class="nav-link logoFontExtraLight" target="_blank" href="#">About</a>
                 </li>
             </ul>
             <!-- <img src="img/LogoIconIsolateNoBackground.png" alt="Dan O'Malley Logo Icon" height="36"> -->
@@ -62,22 +64,135 @@
 <!-- ================Main Section=============== -->
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5 mb-2">
-        <h2 class="border-1 border-bottom border-dark p-2">The Code for App Name</h2>
+        <h2 class="border-1 border-bottom border-dark p-2 logoFontBold">The Code for Fizz-Buzz</h2>
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        //Call Hello world
-                        function helloWorld() {
-                        alert("hello World");
-                        }
+                     
+//Get Values from the user. We need to retrieve the fizz and buzz values.
+function getValues() {
+    //1. get value to test Fizz
+    let fizzValue = document.getElementById("fizzValue").value;
+    
+    //2. get value to test Buzz
+    let buzzValue = document.getElementById("buzzValue").value;
+    
+    //3. check/parse for numbers
+    fizzValue = parseInt(fizzValue);
+
+    //4. check/parse for numbers
+    buzzValue = parseInt(buzzValue);
+
+    //5. validate that "fizzValue" and "buzzValue" are actually Numbers.
+    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
+        
+        //6. we call fizzBuzz
+        let fbArray = fizzBuzz(fizzValue,buzzValue);
+
+        //7. we call displayNumbers
+        //DO:
+        //Call custom function "displayData()" with "fbData" as the parameter
+        //displayData(fbData);
+        displayData(fbArray);
+
+    } else {
+        //DO:
+        //Else if "fizzValue" and "buzzValue" are not Numbers
+        //send an alert to the user with the message "You must enter integers"
+        alert("User must submit integer values only!")
+
+    }
+
+}
+
+//Traditional Solve Fizz Buzz with a for loop
+function fizzBuzz(fizzValue, buzzValue) {
+    
+    let returnArray = [];
+   
+    //Use "for-loop" to count form 1 to 100 using
+    //"i" as the loop control variable
+    for (let i = 1; i <= 100; i++){ 
+
+        //Use an "if-else-statement" to test each number against the zero modulus(%)
+        //Use an "if-else-statement" to evaluate the parameters
+        //of the parameters "fizzValue" (fizz) and "buzzValue" (buzz) . (ie. i % value1 == 0)
+        //First test whether the case is true for both "fizzValue" AND (&&) "buzzValue"
+        if(i % fizzValue == 0 && i % buzzValue == 0){
+
+            //If the AND case is true then "push" the value 'fizzBuzz'
+            //onto the "returnArray"
+            returnArray.push("Fizz-Buzz");
+         
+        //Else test if only the zero modulus(%) of the "fizzValue" is true
+        }else if(i % fizzValue == 0){
+
+        //If true then "push" the value 'Fizz' onto the "returnArray" and not the number
+            returnArray.push("Fizz");
+
+        //Else test if only the zero modulus(%) of the "buzzValue" is true
+        }else if(i % buzzValue == 0){
+            //If true then "push" the value 'Buzz' onto the "returnArray" and not the number
+            returnArray.push("Buzz");
+        }else{
+            //Else just push the number "i" onto the "returnArray"
+            returnArray.push(i);
+        } 
+    }
+    //Finally return the variable "returnArray" 
+   return returnArray;
+    
+}
+
+//custom display function
+function displayData(fbArray) {
+
+    //loop over the array and create a tablerow for each item - add all rows into table
+    //get the table body element from the page
+    let tableBody = document.getElementById("results");
+
+    //get the row from the template
+    let templateRow = document.getElementById("fbTemplate");
+
+    //clear table first
+    tableBody.innerHTML = "";
+
+    for (let index = 0; index < fbArray.length; index += 5) {
+
+        let tableRow = document.importNode(templateRow.content, true);
+
+        //grab only the columns in the template
+        let rowCols = tableRow.querySelectorAll("td");
+
+        rowCols[0].classList.add(fbArray[index]);
+        rowCols[0].textContent = fbArray[index];
+       
+        rowCols[1].classList.add(fbArray[index + 1]);
+        rowCols[1].textContent = fbArray[index + 1];
+       
+        rowCols[2].classList.add(fbArray[index + 2]);
+        rowCols[2].textContent = fbArray[index + 2];
+       
+        rowCols[3].classList.add(fbArray[index + 3]);
+        rowCols[3].textContent = fbArray[index + 3];
+       
+        rowCols[4].classList.add(fbArray[index + 4]);
+        rowCols[4].textContent = fbArray[index + 4];
+ 
+        tableBody.appendChild(tableRow);
+    }
+}
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <h5>Hello World Function</h5>
-                <p>The Code is structured in one function.</p>
-                <p>Hello World is a function that displays an alert with a message of Hello World</p>
+                <h5 class="logoFontItalics">Fizz-Buzz JS Code</h5>
+                <p>In this Coding Challenge Episode, I collected the values 
+                    (3 and 5 by default) and printed multiples of the first value as Fizz 
+                    while the multiples of the second value were printed as buzz.
+                    When a number was a multiple of both the first value and the second value, 
+                    Fizz-Buzz is printed to the webpage</p>
             </div>
         </div>
     </div>

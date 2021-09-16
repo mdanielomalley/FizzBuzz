@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Dan O'Malley</title>
+    <title>Fizz-Buzz: A Coding Project by Dan O'Malley</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +17,8 @@
     
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://use.typekit.net/pim8ayq.css">
+    <link rel="stylesheet" href="https://use.typekit.net/pim8ayq.css">
     <!-- <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png"> -->
     <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest"> -->
@@ -28,8 +30,8 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container-fluid">
         <img src="/img/LogoIconIsolateNoBackground.png" class="align-content-center justify-content-start" height="40">
-        <a class="navbar-brand" href="#" class="aligh-content-center justify-content-end">
-            APP NAME
+        <a class="navbar-brand logoFont" href="#" class="align-content-center justify-content-end">
+            Fizz-Buzz
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,19 +40,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link logoFontExtraLight" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                    <a class="nav-link active logoFontExtraLight" aria-current="page" href="app.html">The App</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="code.html">The Code</a>
+                    <a class="nav-link logoFontExtraLight" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link logoFontExtraLight" target="_blank" href="#">Git Repo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
+                    <a class="nav-link logoFontExtraLight" target="_blank" href="#">About</a>
                 </li>
             </ul>
             <!-- <img src="img/LogoIconIsolateNoBackground.png" alt="Dan O'Malley Logo Icon" height="36"> -->
@@ -58,8 +60,48 @@
     </div>
 </nav>
 <main class="flex-shrink-0">
-    <div class="container">
-
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-lg-4 col border-end border-2">
+                <h1><strong class="logoFont">Fizz-Buzz:</strong></h1>
+                <h4 class="logoFontLightItalics">A Coding Challenge</h4>
+                <h4 class="lead">
+                    <strong class="logoFont">Fizz-Buzz</strong> is a coding challenge built to display
+                    every number between 0 and 100 while printing multiples of the fizz value as "Fizz", 
+                    and multiples of the Buzz value as "Buzz". 
+                    When the two values share a multiple, the program prints "Fizz-Buzz."
+                </h4>
+                <h3 class="border-bottom border-2 mt-5 logoFont">Instructions:</h3>
+                <p>Enter a starting value and an ending value. 
+                   Press the button and the values will appear.</p>
+            </div>
+            <div class="col-lg-8 col">
+                <div>
+                    <h5 class="logoFontLight">Enter Values</h5>
+                    <form class="row gy-2 gx-3">
+                        <div class="col">
+                            <input id="fizzValue" type="number" class="form-control" 
+                            placeholder="Fizz Value" value="3" aria-label="fizz value">
+                        </div>
+                        <div class="col">
+                            <input id="buzzValue" type="number" class="form-control" 
+                            placeholder="Buzz Value" value="5" aria-label="buzz value">
+                        </div>
+                        <div class="col-12 d-flex justify-content-center justify-content-lg-end">
+                            <button type="button" id="btnSubmit" class="btn btn-dark btn-lg logoFontBold">Fizz-Buzz Me</button>
+                        </div>
+                    </form>
+                    <h2 class="mt-5 border-bottom border-2 logoFontLight">Results</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <tbody id="results">
+                              <!-- Results Print Here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <footer class="footer mt-auto py-3 sticky-footer">
@@ -81,10 +123,23 @@
         </div>
     </div>
 </footer>
+
+<!-- Template Tag -->
+<template id="fbTemplate">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</template>
+
  <!-- Bootstrap JS -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
  integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
 </script>
 <script src="js/site.js"></script>
+<script> document.getElementById("btnSubmit").addEventListener("click",getValues);</script>
 </body>
 </html>

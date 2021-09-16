@@ -71,3 +71,66 @@ white-space: pre-wrap;
 word-break: break-all;
 word-wrap: break-word;
 }
+
+.logoFont{
+    font-family: silicone,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logoFontItalics{
+    font-family: silicone,sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.logoFontBold{
+    font-family: silicone,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.logoFontBoldItalics{
+    font-family: silicone,sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.logoFontLight{
+    font-family: silicone,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.logoFontLightItalics{
+    font-family: silicone,sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.logoFontExtraLight{
+    font-family: silicone,sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.logoFontExtraLightItalics{
+    font-family: silicone,sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.Fizz{
+    color:red;
+    font-weight: bold;
+}
+
+.Buzz{
+    color:blue;
+    font-weight: bold;
+}
+
+.Fizz-Buzz{
+    color:rgb(149, 77, 221);
+    font-weight: 900;
+}
