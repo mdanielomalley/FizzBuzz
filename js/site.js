@@ -16,17 +16,16 @@ function getValues() {
     //5. validate that "fizzValue" and "buzzValue" are actually Numbers.
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
         
-        //6. we call fizzBuzz
+        //6. We call fizzBuzz
         let fbArray = fizzBuzz(fizzValue,buzzValue);
 
         //7. we call displayNumbers
-        //DO:
         //Call custom function "displayData()" with "fbData" as the parameter
         //displayData(fbData);
         displayData(fbArray);
 
     } else {
-        //DO:
+        
         //Else if "fizzValue" and "buzzValue" are not Numbers
         //send an alert to the user with the message "You must enter integers"
         alert("User must submit integer values only!")
@@ -72,6 +71,55 @@ function fizzBuzz(fizzValue, buzzValue) {
     //Finally return the variable "returnArray" 
    return returnArray;
     
+}
+
+function fizzBuzzB(fizzValue, buzzValue){
+
+    let returnArray = [];
+    let fizz = false;
+    let buzz = false;
+
+    for (let i = 0; i <= 100; i++) {
+        
+        fizz = i % fizzValue == 0;
+        buzz = i % buzzValue == 0;
+
+        switch(true){
+
+            case fizz && buzz:{
+                returnArray.push('Fizz-Buzz');
+                break;
+            }
+            case fizz:{
+                returnArray.push("Fizz");
+                break;
+            }
+            case buzz:{
+                returnArray.push("Buzz");
+                break;
+            }
+            default:{
+                returnArray.push(i);
+                break;
+            }
+        }
+    }
+
+
+    return returnArray;
+
+}
+
+function fizzBuzzC(fizzValue, buzzValue){
+
+    let returnArray = [];
+
+    for (let i = 1; i <= 100; i++) {
+        let value = ((i % fizzValue == 0 ? 'Fizz' : "") + (i % buzzValue == 0 ? "Buzz" : "") || i);
+        returnArray.push(value);
+    }
+
+    return returnArray;
 }
 
 //custom display function
